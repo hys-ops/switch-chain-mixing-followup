@@ -4,9 +4,9 @@ Two follow-ups to [OpenAI's Theorem 1.1](https://mathcommunity.github.io/oai-mat
 
 ## All graphical degree sequences
 
-**Result:** The mixing-time upper bound improves from $2n^8$ to $n^6$, without changing the chain or sampler.
+**Earlier results.** For the same lazy four-vertex chain on all graphical labeled degree sequences, [Mark T. Short's October 11 preprint](https://zenodo.org/records/23295359) gives the stronger mixing-time upper bound $n^6/4+1$ at total-variation threshold $1/4$. [Euler's October 19 release](https://github.com/canghaimeng/openai-math-improvement/blob/b3c7abea0d5e392777498816ca837eded8b85669/problems/bound-131/paper.pdf) gives the same $n^6$ upper bound and the same Johnson-slice comparison.
 
-**Key step:** The local comparison constant within a fiber drops from $n^2$ to $1/2$ (original Lemma 7.4).
+**What this note provides.** Our note is a short exposition of how to replace the exchange comparison in Lemma 7.4 of the September 25 OpenAI manuscript: the factor $n^2$ becomes $1/2$, and the original argument then yields $n^6$ instead of $2n^8$. The random shortest-path proof in §1 follows the same argument as [Diaconis and Stroock (1991), Proposition 4 and the Bernoulli–Laplace example](https://www2.stat.duke.edu/~scs/Courses/Stat376/Papers/ConvergeRates/DiaconisStroock91.pdf#page=12). The note and Lean kit are offered for exposition and reproduction, without a priority claim.
 
 [Read the proof note (PDF)](https://github.com/hys-ops/switch-chain-mixing-followup/blob/cba4fa25e6681cc1d06e21217154cfce3bdc2fac/Switch_Chain_Followup_hys-ops.pdf) · [Lean reproduction kit](https://github.com/hys-ops/switch-chain-mixing-followup/blob/cba4fa25e6681cc1d06e21217154cfce3bdc2fac/Switch_Chain_Lean_Kit_hys-ops.zip) · [Community submission #83](https://github.com/mathcommunity/oai-math-revised/issues/83)
 
