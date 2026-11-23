@@ -1,6 +1,6 @@
 # Follow-ups on the graph switch chain
 
-Two follow-ups to [OpenAI's Theorem 1.1](https://mathcommunity.github.io/oai-math-revised/papers/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/) use the same lazy four-vertex proposal and worst-start total variation threshold of $1/4$.
+Three follow-ups or expositions to [OpenAI's Theorem 1.1](https://mathcommunity.github.io/oai-math-revised/papers/Polynomial-Mixing-of-the-Switch-Chain-for-Every-Graphical-Degree-Sequence-September-25-2026/) use the same lazy four-vertex proposal and worst-start total variation threshold of $1/4$.
 
 ## All graphical degree sequences
 
@@ -17,6 +17,27 @@ Two follow-ups to [OpenAI's Theorem 1.1](https://mathcommunity.github.io/oai-mat
 **Key step:** Compare the Laplacian $J$ of equal-degree label transpositions with the switch Laplacian $L$: $J\preceq 2L$. The upper bound holds across the class; known hypercube realization graphs give the matching lower order with the original proposal clock.
 
 [Read the 4-page note (PDF)](https://github.com/hys-ops/switch-chain-mixing-followup/blob/6143f8f113c7e441e6571a995bf5ddea8b941abc/Unigraph_Switch_Chain_Public_Review_hys-ops.pdf) · [Lean reproduction kit](https://github.com/hys-ops/switch-chain-mixing-followup/blob/6143f8f113c7e441e6571a995bf5ddea8b941abc/Unigraph_Switch_Chain_Public_Lean_Kit_hys-ops.zip) · [Community submission #85](https://github.com/mathcommunity/oai-math-revised/issues/85)
+
+## Leaf-label restoration
+
+In the family with $h$ hubs of degree $h^4$ and $h^5$ leaves, the original lazy proposal clock gives worst-start TV-$1/4$ mixing of order $\Theta(n^3\log n)$, where $n=h+h^5$. The proof separates hub-graph mixing from mixing of the leaf labels with the hub graph fixed. It adapts the label-transposition idea; neither the unigraph theorem nor the general mixing bound is a premise.
+
+[Written proof (PDF)](Leaf_Core_Switch_Chain_Public_Review_hys-ops.pdf) · [Reading note and Lean replay (ZIP)](Leaf_Label_Public_Lean_Replay_hys-ops.zip) · [Community submission #86](https://github.com/mathcommunity/oai-math-revised/issues/86). Lean's `LeafResult.many_hub_theta` checks matching bounds for $h\ge 1024$. The broader $h,r$ result is a written proof.
+
+## Which results use which proof?
+
+```mermaid
+flowchart TD
+  M["Original lazy four-vertex switch chain"] --> G["Replace the general exchange comparison"]
+  G --> A["All graphical sequences: n⁶ exposition"]
+  M --> U["Compare label-transposition Laplacians"]
+  U --> B["Unigraphs: Θ(n⁴ log n)"]
+  U -.->|method, not the theorem| L["Mix hubs and restore leaf labels"]
+  M --> L
+  L --> C["Specified many-hub family: Θ(n³ log n)"]
+```
+
+Solid arrows indicate proof steps; dotted arrows indicate transfer of an idea.
 
 ## Verification and credit
 
